@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="BB_LINQ">
+  <DataContextMoniker Name="/BB_LINQDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fa441467-abbd-4659-830d-57d79336ce0d" absoluteBounds="3.5, 1, 2, 1.7708968098958333">
+      <DataClassMoniker Name="/BB_LINQDataContext/Kunde" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7711d3c4-a2c6-48a3-ad80-07696cae5463" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c7ac5926-a6fe-46f9-8edd-8dd3391b1f3c" absoluteBounds="6.25, 0.875, 2, 1.9631982421874998">
+      <DataClassMoniker Name="/BB_LINQDataContext/RammeAftale" />
+      <nestedChildShapes>
+        <elementListCompartment Id="980da588-bf14-446d-9724-9daf3669482a" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="01389458-be96-4148-abcf-1b15942c2ca6" absoluteBounds="9, 1.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BB_LINQDataContext/Notat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1d3ad77a-b3dc-4b5e-aa20-3e84c664f988" absoluteBounds="9.015, 1.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="47999c5d-f6a4-4588-ae8e-b54504d1b750" absoluteBounds="0.75, 1.25, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/BB_LINQDataContext/PostBy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b4d53c9-11be-4f1b-b04a-1e25717084cb" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2b81b3f3-b420-44c0-af61-b9d4e18b118a" absoluteBounds="3.5, 4.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BB_LINQDataContext/Rabat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="059ef752-b1a3-49fc-8d6c-4eedc6af725c" absoluteBounds="3.515, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.88544840494792); (6.25 : 1.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BB_LINQDataContext/Kunde/Kunde_RammeAftale" />
+      <nodes>
+        <classShapeMoniker Id="fa441467-abbd-4659-830d-57d79336ce0d" />
+        <classShapeMoniker Id="c7ac5926-a6fe-46f9-8edd-8dd3391b1f3c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.91429768880208); (9 : 1.91429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BB_LINQDataContext/RammeAftale/RammeAftale_Notat" />
+      <nodes>
+        <classShapeMoniker Id="c7ac5926-a6fe-46f9-8edd-8dd3391b1f3c" />
+        <classShapeMoniker Id="01389458-be96-4148-abcf-1b15942c2ca6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.84699625651042); (3.5 : 1.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BB_LINQDataContext/PostBy/PostBy_Kunde" />
+      <nodes>
+        <classShapeMoniker Id="47999c5d-f6a4-4588-ae8e-b54504d1b750" />
+        <classShapeMoniker Id="fa441467-abbd-4659-830d-57d79336ce0d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.84699625651042); (7.25 : 4.84699625651042); (7.25 : 2.8381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BB_LINQDataContext/Rabat/Rabat_RammeAftale" />
+      <nodes>
+        <classShapeMoniker Id="2b81b3f3-b420-44c0-af61-b9d4e18b118a" />
+        <classShapeMoniker Id="c7ac5926-a6fe-46f9-8edd-8dd3391b1f3c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BB_LINQ", "BB_LINQ\BB_LINQ.csproj", "{C08D4EBE-420A-45C4-B922-A66401AB4B65}"
+EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "BB_UML", "BB_UML\BB_UML.modelproj", "{1FEA4EBC-9A61-4D2C-9A8A-F533824C4E71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BB_UMLLib", "BB_UMLLib\BB_UMLLib.csproj", "{DE8F1F08-902B-4A99-820D-5D883CC33C85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C08D4EBE-420A-45C4-B922-A66401AB4B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C08D4EBE-420A-45C4-B922-A66401AB4B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C08D4EBE-420A-45C4-B922-A66401AB4B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C08D4EBE-420A-45C4-B922-A66401AB4B65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FEA4EBC-9A61-4D2C-9A8A-F533824C4E71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEA4EBC-9A61-4D2C-9A8A-F533824C4E71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEA4EBC-9A61-4D2C-9A8A-F533824C4E71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEA4EBC-9A61-4D2C-9A8A-F533824C4E71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8F1F08-902B-4A99-820D-5D883CC33C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8F1F08-902B-4A99-820D-5D883CC33C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8F1F08-902B-4A99-820D-5D883CC33C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8F1F08-902B-4A99-820D-5D883CC33C85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

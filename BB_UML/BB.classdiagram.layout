@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BB">
+  <logicalClassDesignerModelMoniker Id="f608a093-ef46-4ca8-ad79-953b8d6437a6" />
+  <nestedChildShapes>
+    <classShape Id="ff11d2db-1936-4d2f-bdbd-524f4c591bbd" absoluteBounds="5.125, 2.375, 2, 3.4300230499108633" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="23d32b90-df73-4b2e-b435-fb0a94de7959" LastKnownName="RammeAftaleViewModel" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="d45f9678-378d-402b-8304-c08c5d0a6ec1" absoluteBounds="5.14, 2.8903356393178306, 1.9700000000000002, 2.6035155430436134" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="6d7ce5ff-1304-4e31-97f6-fa6e622ddf31" absoluteBounds="5.14, 5.5038511823614442, 1.9700000000000002, 0.20117186754941985" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

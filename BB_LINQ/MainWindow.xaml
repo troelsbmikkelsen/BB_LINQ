@@ -1,0 +1,19 @@
+﻿<Window x:Class="BB_LINQ.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BB_LINQ"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <TextBox x:Name="textBox_Navn" Text="{Binding Kundenavn}" HorizontalAlignment="Left" Height="23" Margin="86,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_CVR" Text="{Binding CVR}" HorizontalAlignment="Left" Height="23" Margin="86,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Adresse" Text="{Binding Kundeadresse}" HorizontalAlignment="Left" Height="23" Margin="86,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Postnummer" Text="{Binding Postnummer}" HorizontalAlignment="Left" Height="23" Margin="86,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Bynavn" Text="{Binding Bynavn}" HorizontalAlignment="Left" Height="23" Margin="86,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_RabatProcent" Text="{Binding RabatProcent, StringFormat=\{0:P\}}" HorizontalAlignment="Left" Height="23" Margin="86,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Rammebeloeb" Text="{Binding Rammebeloeb}" HorizontalAlignment="Left" Height="23" Margin="86,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Kontaktperson" Text="{Binding Kontaktperson}" HorizontalAlignment="Left" Height="23" Margin="86,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

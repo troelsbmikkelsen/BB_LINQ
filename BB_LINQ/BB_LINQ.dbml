@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BorgesBadevaerelser" Class="BB_LINQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CV-PC-T-04\SQLEXPRESS;Initial Catalog=BorgesBadevaerelser;Integrated Security=True" SettingsObjectName="BB_LINQ.Properties.Settings" SettingsPropertyName="BorgesBadevaerelserConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Kunde" Member="Kundes">
+    <Type Name="Kunde">
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Kundenavn" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CVR" Type="System.String" DbType="NChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Kundeadresse" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Postnummer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Kunde_RammeAftale" Member="RammeAftales" ThisKey="KundeID" OtherKey="KundeID" Type="RammeAftale" />
+      <Association Name="PostBy_Kunde" Member="PostBy" ThisKey="Postnummer" OtherKey="Postnr" Type="PostBy" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RammeAftale" Member="RammeAftales">
+    <Type Name="RammeAftale">
+      <Column Name="AftaleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Dato" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="KundeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rammebeloeb" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="RabatID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Kontaktperson" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="RammeAftale_Notat" Member="Notats" ThisKey="AftaleID" OtherKey="AftaleID" Type="Notat" />
+      <Association Name="Kunde_RammeAftale" Member="Kunde" ThisKey="KundeID" OtherKey="KundeID" Type="Kunde" IsForeignKey="true" />
+      <Association Name="Rabat_RammeAftale" Member="Rabat" ThisKey="RabatID" OtherKey="RabatID" Type="Rabat" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notat" Member="Notats">
+    <Type Name="Notat">
+      <Column Name="NotatID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Notat" Member="Notat1" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AftaleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Opfoelgningsdato" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="RammeAftale_Notat" Member="RammeAftale" ThisKey="AftaleID" OtherKey="AftaleID" Type="RammeAftale" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PostBy" Member="PostBies">
+    <Type Name="PostBy">
+      <Column Name="Postnr" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Bynavn" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Association Name="PostBy_Kunde" Member="Kundes" ThisKey="Postnr" OtherKey="Postnummer" Type="Kunde" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rabat" Member="Rabats">
+    <Type Name="Rabat">
+      <Column Name="RabatID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Rabatprocent" Type="System.Decimal" DbType="Decimal(3,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Rabat_RammeAftale" Member="RammeAftales" ThisKey="RabatID" OtherKey="RabatID" Type="RammeAftale" />
+    </Type>
+  </Table>
+</Database>
