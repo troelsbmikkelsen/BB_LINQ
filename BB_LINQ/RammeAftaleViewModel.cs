@@ -9,94 +9,140 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
 
 namespace BB_LINQ {
-    public class RammeAftaleViewModel {
-        private RammeAftale _rammeaftale;
+    public class RammeAftaleViewModel : ObservableObject {
+        private BB_LINQDataContext db = new BB_LINQDataContext(DB.connectionString);
+        private RammeAftale _rammeaftale = new RammeAftale();
 
-        private Kunde _kunde;
+        private Kunde _kunde = new Kunde();
 
-        private Rabat _rabat;
+        private Rabat _rabat = new Rabat();
 
-        private PostBy _postby;
+        private PostBy _postby = new PostBy();
 
-        private List<Notat> _notater;
+        private List<Notat> _notater = new List<BB_LINQ.Notat>();
 
         private int _notatnr = 1;
+
+        private int _rammeaftalenr;
 
         public RammeAftaleViewModel() {
 
         }
 
         public RammeAftaleViewModel(int nr) {
-            BB_LINQDataContext db = new BB_LINQDataContext(DB.connectionString);
             try {
-                _rammeaftale = db.RammeAftales.OrderBy(x => x.AftaleID).Skip(nr - 1).Take(1).ToArray()[0];
-                _kunde = db.Kundes.Where(x => x.KundeID == _rammeaftale.KundeID).First();
-                _rabat = db.Rabats.Where(x => x.RabatID == _rammeaftale.RabatID).First();
-                _postby = db.PostBies.Where(x => x.Postnr == _kunde.Postnummer).First();
-                _notater = db.Notats.Where(x => x.AftaleID == _rammeaftale.AftaleID).ToList();
+                _rammeaftalenr = nr;
+                _load();
             } catch (Exception ex) {
                 Debug.WriteLine(ex.Message);
             }
 
         }
 
+        #region databinding properties
         public string Kundenavn
         {
             get { return _kunde.Kundenavn; }
-            set { _kunde.Kundenavn = value; }
+            set { _kunde.Kundenavn = value; RaisePropertyChangedEvent("Kundenavn"); }
         }
 
         public string CVR
         {
             get { return _kunde.CVR; }
-            set { _kunde.CVR = value; }
+            set { _kunde.CVR = value; RaisePropertyChangedEvent("CVR"); }
         }
 
         public string Kundeadresse
         {
             get { return _kunde.Kundeadresse; }
-            set { _kunde.Kundeadresse = value; }
+            set { _kunde.Kundeadresse = value; RaisePropertyChangedEvent("Kundeadresse"); }
         }
 
         public string Postnummer
         {
             get { return _postby.Postnr.ToString(); }
-            set { _postby.Postnr = int.Parse(value); }
+            set { _kunde.Postnummer = int.Parse(value); RaisePropertyChangedEvent("Postnummer"); }
         }
 
         public string Bynavn
         {
             get { return _postby.Bynavn; }
-            set { _postby.Bynavn = value; }
+            set { _postby.Bynavn = value; RaisePropertyChangedEvent("Bynavn"); }
         }
 
         public decimal RabatProcent
         {
             get { return _rabat.Rabatprocent; }
-            set { _rabat.Rabatprocent = value; }
+            set { _rabat.Rabatprocent = value; RaisePropertyChangedEvent("RabatProcent"); }
         }
 
         public decimal Rammebeloeb
         {
             get { return _rammeaftale.Rammebeloeb; }
-            set { _rammeaftale.Rammebeloeb = value; }
+            set { _rammeaftale.Rammebeloeb = value; RaisePropertyChangedEvent("Rammebeloeb"); }
         }
 
         public string Kontaktperson
         {
             get { return _rammeaftale.Kontaktperson; }
-            set { _rammeaftale.Kontaktperson = value; }
+            set { _rammeaftale.Kontaktperson = value; RaisePropertyChangedEvent("Kontaktperson"); }
         }
 
-
-
-        public string Notat
+        public string Notatet
         {
-            get { return _notater[_notatnr].Notat1; }
-            set { _notater[_notatnr].Notat1 = value; }
+            get { return _notater[_notatnr-1].Notat1; }
+            set { _notater[_notatnr-1].Notat1 = value; RaisePropertyChangedEvent("Notat"); }
         }
+
+        #endregion
+
+        #region databinding commands
+
+        private void _load() {
+            db = new BB_LINQDataContext(DB.connectionString);
+            _rammeaftale = db.RammeAftales.OrderBy(x => x.AftaleID).Skip(_rammeaftalenr - 1).Take(1).ToArray()[0];
+            _kunde = db.Kundes.Where(x => x.KundeID == _rammeaftale.KundeID).First();
+            _rabat = db.Rabats.Where(x => x.RabatID == _rammeaftale.RabatID).First();
+            _postby = db.PostBies.Where(x => x.Postnr == _kunde.Postnummer).First();
+            _notater = db.Notats.Where(x => x.AftaleID == _rammeaftale.AftaleID).ToList();
+
+            _refresh();
+        }
+
+        public ICommand Load
+        {
+            get {return new DelegateCommand(_load); }
+        }
+
+        private void _refresh() {
+            RaisePropertyChangedEvent("Kundenavn");
+            RaisePropertyChangedEvent("CVR");
+            RaisePropertyChangedEvent("Kundeadresse");
+            RaisePropertyChangedEvent("Postnummer");
+            RaisePropertyChangedEvent("Bynavn");
+            RaisePropertyChangedEvent("RabatProcent");
+            RaisePropertyChangedEvent("Rammebeloeb");
+            RaisePropertyChangedEvent("Kontaktperson");
+            RaisePropertyChangedEvent("Notat");
+        }
+
+        public ICommand Refresh {
+            get { return new DelegateCommand(_refresh); }
+        }
+
+        private void _save() {
+            db.SubmitChanges();
+            _load();
+        }
+
+        public ICommand Save {
+            get { return new DelegateCommand(_save); }
+        }
+
+        #endregion
 
     }
 

@@ -59,7 +59,14 @@
     <Compile Include="BB_LINQ.cs">
       <DependentUpon>BB_LINQ.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="DelegateCommand.cs" />
+    <Compile Include="ObservableObject.cs" />
     <Compile Include="RammeAftaleViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,6 +103,9 @@
     <None Include="BB_LINQ.dbml.layout">
       <DependentUpon>BB_LINQ.dbml</DependentUpon>
     </None>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -103,6 +113,11 @@
     <None Include="BB_LINQ.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>BB_LINQ.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">

@@ -11,9 +11,11 @@
         <TextBox x:Name="textBox_CVR" Text="{Binding CVR}" HorizontalAlignment="Left" Height="23" Margin="86,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_Adresse" Text="{Binding Kundeadresse}" HorizontalAlignment="Left" Height="23" Margin="86,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_Postnummer" Text="{Binding Postnummer}" HorizontalAlignment="Left" Height="23" Margin="86,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Bynavn" Text="{Binding Bynavn}" HorizontalAlignment="Left" Height="23" Margin="86,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Bynavn" Text="{Binding Bynavn, Mode=OneWay}" HorizontalAlignment="Left" Height="23" Margin="86,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox_RabatProcent" Text="{Binding RabatProcent, StringFormat=\{0:P\}}" HorizontalAlignment="Left" Height="23" Margin="86,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Rammebeloeb" Text="{Binding Rammebeloeb}" HorizontalAlignment="Left" Height="23" Margin="86,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox_Kontaktperson" Text="{Binding Kontaktperson}" HorizontalAlignment="Left" Height="23" Margin="86,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Rammebeloeb" Text="{Binding Rammebeloeb}" HorizontalAlignment="Left" Height="23" Margin="86,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox_Kontaktperson" Text="{Binding Kontaktperson}" HorizontalAlignment="Left" Height="23" Margin="86,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button_Hent" Command="{Binding Load}" Content="Hent" HorizontalAlignment="Left" Margin="49,275,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button_Gem" Command="{Binding Save}" Content="Gem" HorizontalAlignment="Left" Margin="146,275,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
